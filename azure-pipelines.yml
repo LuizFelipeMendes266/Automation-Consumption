@@ -1,0 +1,15 @@
+trigger:
+  batch: true
+  branches:
+    include:
+      - master
+variables:
+  - group: AWS Credentials
+pool:
+  vmImage: "ubuntu-latest"
+steps:
+  - ${{ if in(variables['Build.SourceBranchName'], 'master')}}:
+        - template: scripts/msbuild.yml
+          parameters:
+            ENVIRONMENT: common
+            CONTAINER_ARCH: linux/amd64

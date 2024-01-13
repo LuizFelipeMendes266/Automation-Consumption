@@ -1,0 +1,5 @@
+geopandas
+unidecode
+elasticsearch
+pymongo
+boto3
